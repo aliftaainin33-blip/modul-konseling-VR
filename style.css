@@ -114,3 +114,17 @@ footer{padding:25px;text-align:center;background:#171329;color:#aaa3bc;font-size
 .finish-message p {
     margin: 0;
 }
+@media (max-width: 800px) {
+    .bully-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bully-card {
+        min-height: auto;
+    }
+
+    .bully-box h2 {
+        font-size: 38px;
+        letter-spacing: 7px;
+    }
+}
