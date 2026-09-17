@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modul Selesai | Rekonstruksi Empati</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 10% 20%, #eeeaff, transparent 30%),
+                radial-gradient(circle at 90% 80%, #f7e9ff, transparent 30%),
+                #faf9ff;
+            color: #29263d;
+        }
+
+
+        /* NAVBAR */
+
+        .selesai-nav {
+            height: 75px;
+            background: rgba(255,255,255,0.96);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid #eeeafa;
+        }
+
+        .selesai-logo {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .selesai-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .selesai-links a {
+            text-decoration: none;
+            color: #77738a;
+            font-size: 14px;
+        }
+
+        .selesai-links a:hover {
+            color: #7255d5;
+        }
+
+
+        /* HALAMAN */
+
+        .selesai-page {
+            min-height: calc(100vh - 75px);
+
+            padding: 55px 20px 70px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .selesai-wrapper {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+
+        /* JUDUL */
+
+        .selesai-label {
+            text-align: center;
+
+            color: #7255d5;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .selesai-title {
+            text-align: center;
+
+            font-size: 46px;
+
+            margin: 0;
+
+            color: #252238;
+        }
+
+        .selesai-title span {
+            color: #7255d5;
+        }
+
+        .selesai-intro {
+            text-align: center;
+
+            color: #77738a;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            max-width: 650px;
+
+            margin: 15px auto 40px;
+        }
+
+
+        /* CARD */
+
+        .selesai-card {
+            background: rgba(255,255,255,0.97);
+
+            border-radius: 28px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 18px 50px rgba(80,65,145,0.12);
+
+            border: 1px solid #eeeafa;
+        }
+
+
+        /* BULLY TITLE */
+
+        .bully-heading {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            margin-bottom: 8px;
+        }
+
+        .bully-heading span {
+            width: 120px;
+
+            height: 2px;
+
+            background: #d7d1ed;
+        }
+
+        .bully-heading h2 {
+            margin: 0;
+
+            font-size: 50px;
+
+            letter-spacing: 10px;
+
+            color: #e33d5a;
+
+            font-weight: 900;
+        }
+
+        .bully-subtitle {
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #6e6882;
+
+            font-weight: 700;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* BULLY GRID */
+
+        .bully-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 15px;
+        }
+
+
+        /* CARD BULLY */
+
+        .bully-card {
+            min-height: 285px;
+
+            border-radius: 20px;
+
+            padding: 25px 15px;
+
+            text-align: center;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: 0.25s;
+        }
+
+        .bully-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 25px rgba(60,50,100,0.12);
+        }
+
+
+        /* WARNA */
+
+        .bully-b {
+            background: #fff0f4;
+        }
+
+        .bully-u {
+            background: #fff8e7;
+        }
+
+        .bully-l1 {
+            background: #edfaf1;
+        }
+
+        .bully-l2 {
+            background: #f0edff;
+        }
+
+        .bully-y {
+            background: #edf5ff;
+        }
+
+
+        /* HURUF */
+
+        .bully-letter {
+            font-size: 65px;
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            color: #e33d5a;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* ICON */
+
+        .bully-icon {
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* JUDUL */
+
+        .bully-card h3 {
+            margin: 5px 0 10px;
+
+            font-size: 16px;
+
+            color: #293457;
+
+            font-weight: 900;
+        }
+
+
+        /* TEXT */
+
+        .bully-card p {
+            margin: 0;
+
+            color: #62687c;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        /* PESAN */
+
+        .selesai-message {
+            margin: 30px auto 0;
+
+            max-width: 750px;
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background: #f4f1ff;
+
+            color: #5c5575;
+
+            line-height: 1.6;
+        }
+
+
+        /* BUTTON */
+
+        .selesai-button {
+            display: block;
+
+            width: fit-content;
+
+            margin: 30px auto 0;
+
+            padding: 15px 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7056d4,
+                    #8b70e5
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 13px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 9px 22px rgba(112,86,212,0.25);
+
+            transition: 0.2s;
+        }
+
+        .selesai-button:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* FOOTER */
+
+        .selesai-footer {
+            background: #25243b;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 12px;
+        }
+
+
+        /* HP */
+
+        @media (max-width: 850px) {
+
+            .selesai-card {
+                padding: 25px 18px;
+            }
+
+            .bully-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .bully-heading span {
+                width: 50px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .selesai-links {
+                display: none;
+            }
+
+            .selesai-title {
+                font-size: 34px;
+            }
+
+            .selesai-intro {
+                font-size: 14px;
+            }
+
+            .bully-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bully-heading h2 {
+                font-size: 38px;
+
+                letter-spacing: 6px;
+            }
+
+            .bully-heading span {
+                width: 30px;
+            }
+
+            .bully-card {
+                min-height: 230px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="selesai-nav">
+
+        <div class="selesai-logo">
+            🥽 REKONSTRUKSI EMPATI
+        </div>
+
+        <div class="selesai-links">
+
+            <a href="index.html">Beranda</a>
+
+            <a href="empati.html">Empati</a>
+
+            <a href="skenario.html">Skenario</a>
+
+            <a href="vr.html">Pengalaman VR</a>
+
+            <a href="refleksi.html">Refleksi</a>
+
+            <a href="konseling.html">Konseling</a>
+
+            <a href="evaluasi.html">Evaluasi</a>
+
+            <a href="komitmen.html">Komitmen</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ISI -->
+
+    <main class="selesai-page">
+
+        <div class="selesai-wrapper">
+
+
+            <div class="selesai-label">
+                08 • SELESAI
+            </div>
+
+
+            <h1 class="selesai-title">
+                Modul <span>Selesai!</span> 🎉
+            </h1>
+
+
+            <p class="selesai-intro">
+
+                Terima kasih sudah mengikuti modul
+                Rekonstruksi Empati.
+
+                Mari jadikan empati sebagai bagian
+                dari kehidupan sehari-hari.
+
+            </p>
+
+
+
+            <section class="selesai-card">
+
+
+                <!-- BULLY -->
+
+                <div class="bully-heading">
+
+                    <span></span>
+
+                    <h2>BULLY</h2>
+
+                    <span></span>
+
+                </div>
+
+
+                <p class="bully-subtitle">
+
+                    BE KIND • UNDERSTAND • LISTEN •
+                    LIFT OTHERS • YOU CAN STOP IT
+
+                </p>
+
+
+
+                <div class="bully-grid">
+
+
+                    <!-- B -->
+
+                    <div class="bully-card bully-b">
+
+                        <div class="bully-letter">
+                            B
+                        </div>
+
+                        <div class="bully-icon">
+                            💗
+                        </div>
+
+                        <h3>
+                            BE KIND
+                        </h3>
+
+                        <p>
+                            Bersikap baik dan menghargai
+                            semua orang.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- U -->
+
+                    <div class="bully-card bully-u">
+
+                        <div class="bully-letter">
+                            U
+                        </div>
+
+                        <div class="bully-icon">
+                            🤝
+                        </div>
+
+                        <h3>
+                            UNDERSTAND
+                        </h3>
+
+                        <p>
+                            Pahami perasaan orang lain
+                            dan tunjukkan empati.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- L -->
+
+                    <div class="bully-card bully-l1">
+
+                        <div class="bully-letter">
+                            L
+                        </div>
+
+                        <div class="bully-icon">
+                            👂
+                        </div>
+
+                        <h3>
+                            LISTEN
+                        </h3>
+
+                        <p>
+                            Dengarkan tanpa menghakimi
+                            dan beri dukungan.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- L -->
+
+                    <div class="bully-card bully-l2">
+
+                        <div class="bully-letter">
+                            L
+                        </div>
+
+                        <div class="bully-icon">
+                            🙌
+                        </div>
+
+                        <h3>
+                            LIFT OTHERS
+                        </h3>
+
+                        <p>
+                            Bangun dan dukung teman,
+                            jangan menjatuhkan.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Y -->
+
+                    <div class="bully-card bully-y">
+
+                        <div class="bully-letter">
+                            Y
+                        </div>
+
+                        <div class="bully-icon">
+                            ✋
+                        </div>
+
+                        <h3>
+                            YOU CAN STOP IT
+                        </h3>
+
+                        <p>
+                            Kamu bisa menghentikan
+                            bullying!
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PESAN -->
+
+                <div class="selesai-message">
+
+                    💜
+
+                    <strong>
+                        Lingkungan yang aman dan suportif
+                        dimulai dari kita.
+                    </strong>
+
+                    <br>
+
+                    Jadilah seseorang yang memilih
+                    untuk peduli, memahami, mendengarkan,
+                    dan mendukung orang lain.
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <a
+                    href="index.html"
+                    class="selesai-button"
+                >
+                    🏠 Kembali ke Beranda
+                </a>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="selesai-footer">
+
+        🥽 REKONSTRUKSI EMPATI • Modul Konseling VR
+
+    </footer>
+
+
+</body>
+</html>
