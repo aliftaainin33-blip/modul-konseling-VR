@@ -1,1 +1,160 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rekonstruksi Empati</title><link rel="stylesheet" href="style.css"></head><body><nav><div class="logo">🥽 REKONSTRUKSI EMPATI</div><button class="menu" onclick="menu()">☰</button><div class="nav-links" id="nav"><a href="index.html">Beranda</a><a href="empati.html">Empati</a><a href="skenario.html">Skenario<scr="video-relasional-cyber[1].mp4<!DOCTYPE html>
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pengalaman VR • Rekonstruksi Empati</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .vr-page {
+            min-height: 80vh;
+            padding: 55px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vr-card {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+            text-align: center;
+        }
+
+        .vr-label {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #7b61ff;
+            margin-bottom: 10px;
+        }
+
+        .vr-card h1 {
+            margin: 0 0 12px;
+            font-size: 36px;
+        }
+
+        .vr-card > p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .video-box {
+            width: 100%;
+            background: #111;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            display: block;
+            background: #111;
+        }
+
+        .video-info {
+            margin-top: 18px;
+            padding: 15px;
+            background: #f5f2ff;
+            border-radius: 12px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .next-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #7b61ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .next-button:hover {
+            opacity: .9;
+        }
+
+        @media (max-width: 600px) {
+            .vr-page {
+                padding: 30px 15px;
+            }
+
+            .vr-card {
+                padding: 20px;
+            }
+
+            .vr-card h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR: TIDAK DIHAPUS -->
+    <nav>
+        <div class="logo">🥽 REKONSTRUKSI EMPATI</div>
+
+        <button class="menu" onclick="menu()">☰</button>
+
+        <div class="nav-links" id="nav">
+            <a href="index.html">Beranda</a>
+            <a href="empati.html">Empati</a>
+            <a href="skenario.html">Skenario</a>
+            <a href="vr.html">Pengalaman VR</a>
+            <a href="refleksi.html">Refleksi</a>
+            <a href="konseling.html">Konseling</a>
+            <a href="evaluasi.html">Evaluasi</a>
+            <a href="komitmen.html">Komitmen</a>
+        </div>
+    </nav>
+
+    <main class="vr-page">
+        <section class="vr-card">
+
+            <div class="vr-label">03 • PENGALAMAN VR</div>
+
+            <h1>Pengalaman Virtual Reality</h1>
+
+            <p>
+                Saksikan video berikut untuk memahami situasi bullying
+                dari sudut pandang korban.
+            </p>
+
+            <div class="video-box">
+                <video controls playsinline preload="metadata">
+                    <source
+                        src="video-relasional-cyber%5B1%5D.mp4"
+                        type="video/mp4">
+                    Browser kamu tidak mendukung pemutaran video.
+                </video>
+            </div>
+
+            <div class="video-info">
+                🎧 Gunakan earphone/headset jika tersedia dan perhatikan
+                pengalaman sampai selesai.
+            </div>
+
+            <a href="refleksi.html" class="next-button">
+                Lanjut ke Refleksi →
+            </a>
+
+        </section>
+    </main>
+
+    <footer>
+        🥽 REKONSTRUKSI EMPATI • Modul Konseling VR
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
