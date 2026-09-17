@@ -1,24 +1,263 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komitmen | Rekonstruksi Empati</title>
 
-    <title>Komitmen - Rekonstruksi Empati</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #faf8ff, #f3efff);
+            color: #25233a;
+        }
+
+        /* NAVBAR */
+        .kom-nav {
+            height: 75px;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid #eeeafa;
+        }
+
+        .kom-logo {
+            font-size: 18px;
+            font-weight: 800;
+            color: #28263d;
+        }
+
+        .kom-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .kom-links a {
+            text-decoration: none;
+            color: #77738a;
+            font-size: 14px;
+        }
+
+        .kom-links a:hover,
+        .kom-links .active {
+            color: #7054d8;
+            font-weight: 700;
+        }
+
+        /* HALAMAN */
+        .kom-page {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            justify-content: center;
+            padding: 55px 20px 70px;
+        }
+
+        .kom-wrapper {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* JUDUL */
+        .kom-label {
+            text-align: center;
+            color: #7659d8;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .kom-title {
+            text-align: center;
+            font-size: 48px;
+            line-height: 1.15;
+            margin: 0;
+            color: #202033;
+            font-weight: 800;
+        }
+
+        .kom-title span {
+            color: #7155d4;
+        }
+
+        .kom-desc {
+            text-align: center;
+            color: #858196;
+            margin: 15px 0 40px;
+            font-size: 15px;
+        }
+
+        /* CARD UTAMA */
+        .kom-box {
+            background: rgba(255,255,255,0.96);
+            border-radius: 25px;
+            padding: 32px;
+            box-shadow: 0 15px 45px rgba(81,64,145,0.10);
+            border: 1px solid #eeeafa;
+        }
+
+        .kom-question {
+            font-size: 16px;
+            font-weight: 700;
+            color: #343149;
+            margin: 0 0 18px;
+        }
+
+        /* ITEM */
+        .kom-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .kom-item {
+            width: 100%;
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 18px;
+            background: #fff;
+            border: 1px solid #e9e6f2;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .kom-item:hover {
+            background: #f8f6ff;
+            border-color: #cfc5ef;
+        }
+
+        .kom-item input {
+            display: none;
+        }
+
+        /* CHECKBOX */
+        .kom-check {
+            width: 21px;
+            height: 21px;
+            border: 2px solid #d1ccdf;
+            border-radius: 5px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .kom-item input:checked + .kom-check {
+            background: #7155d4;
+            border-color: #7155d4;
+            color: white;
+        }
+
+        .kom-item input:checked ~ .kom-text {
+            color: #5e49bd;
+            font-weight: 700;
+        }
+
+        .kom-text {
+            font-size: 15px;
+            color: #555267;
+        }
+
+        /* PESAN */
+        .kom-info {
+            margin-top: 25px;
+            padding: 15px 18px;
+            border-radius: 13px;
+            background: #f5f2ff;
+            color: #625b79;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* BUTTON */
+        .kom-button {
+            display: block;
+            margin: 25px auto 0;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7056d4, #8b70e5);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(112,86,212,0.22);
+            transition: 0.2s;
+        }
+
+        .kom-button:hover {
+            transform: translateY(-2px);
+        }
+
+        #kom-error {
+            text-align: center;
+            color: #d3546c;
+            font-size: 13px;
+            min-height: 18px;
+            margin-top: 12px;
+        }
+
+        /* FOOTER */
+        .kom-footer {
+            text-align: center;
+            padding: 20px;
+            background: #24233a;
+            color: white;
+            font-size: 12px;
+        }
+
+        /* HP */
+        @media (max-width: 700px) {
+
+            .kom-nav {
+                padding: 0 20px;
+            }
+
+            .kom-links {
+                display: none;
+            }
+
+            .kom-page {
+                padding: 40px 15px;
+            }
+
+            .kom-title {
+                font-size: 34px;
+            }
+
+            .kom-box {
+                padding: 22px 18px;
+            }
+
+            .kom-text {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <nav>
-        <div class="logo">🥽 REKONSTRUKSI EMPATI</div>
+    <nav class="kom-nav">
+        <div class="kom-logo">
+            🥽 REKONSTRUKSI EMPATI
+        </div>
 
-        <button class="menu" onclick="menu()">☰</button>
-
-        <div class="nav-links" id="nav">
+        <div class="kom-links">
             <a href="index.html">Beranda</a>
             <a href="empati.html">Empati</a>
             <a href="skenario.html">Skenario</a>
@@ -31,155 +270,123 @@
     </nav>
 
 
-    <!-- HALAMAN KOMITMEN -->
-    <main class="commitment-page">
+    <!-- ISI -->
+    <main class="kom-page">
 
-        <section class="commitment-container">
+        <div class="kom-wrapper">
 
-            <div class="commitment-label">
+            <div class="kom-label">
                 07 • KOMITMEN
             </div>
 
-            <h1>
+            <h1 class="kom-title">
                 Aku Memilih <span>Empati</span> 💜
             </h1>
 
-            <p class="commitment-description">
+            <p class="kom-desc">
                 Pilih minimal satu komitmen yang ingin kamu lakukan.
             </p>
 
 
-            <!-- DAFTAR KOMITMEN -->
-            <div class="commitment-list">
+            <section class="kom-box">
 
-                <label class="commitment-item">
-                    <input type="checkbox" name="commitment"
-                        value="Menghargai setiap orang">
-
-                    <span class="custom-check">✓</span>
-
-                    <span class="commitment-text">
-                        Menghargai setiap orang
-                    </span>
-                </label>
+                <p class="kom-question">
+                    💜 Komitmen saya untuk menciptakan lingkungan yang aman:
+                </p>
 
 
-                <label class="commitment-item">
-                    <input type="checkbox" name="commitment"
-                        value="Tidak ikut mengejek atau merendahkan">
+                <div class="kom-list">
 
-                    <span class="custom-check">✓</span>
-
-                    <span class="commitment-text">
-                        Tidak ikut mengejek atau merendahkan
-                    </span>
-                </label>
-
-
-                <label class="commitment-item">
-                    <input type="checkbox" name="commitment"
-                        value="Membantu teman dengan cara yang aman">
-
-                    <span class="custom-check">✓</span>
-
-                    <span class="commitment-text">
-                        Membantu teman dengan cara yang aman
-                    </span>
-                </label>
+                    <label class="kom-item">
+                        <input type="checkbox" name="komitmen">
+                        <span class="kom-check">✓</span>
+                        <span class="kom-text">
+                            Menghargai setiap orang
+                        </span>
+                    </label>
 
 
-                <label class="commitment-item">
-                    <input type="checkbox" name="commitment"
-                        value="Meminta bantuan guru atau BK ketika diperlukan">
-
-                    <span class="custom-check">✓</span>
-
-                    <span class="commitment-text">
-                        Meminta bantuan guru/BK ketika diperlukan
-                    </span>
-                </label>
+                    <label class="kom-item">
+                        <input type="checkbox" name="komitmen">
+                        <span class="kom-check">✓</span>
+                        <span class="kom-text">
+                            Tidak ikut mengejek atau merendahkan
+                        </span>
+                    </label>
 
 
-                <label class="commitment-item">
-                    <input type="checkbox" name="commitment"
-                        value="Menjadi bagian dari lingkungan sekolah yang aman">
-
-                    <span class="custom-check">✓</span>
-
-                    <span class="commitment-text">
-                        Menjadi bagian dari lingkungan sekolah yang aman
-                    </span>
-                </label>
-
-            </div>
+                    <label class="kom-item">
+                        <input type="checkbox" name="komitmen">
+                        <span class="kom-check">✓</span>
+                        <span class="kom-text">
+                            Membantu teman dengan cara yang aman
+                        </span>
+                    </label>
 
 
-            <!-- PESAN -->
-            <div class="commitment-note">
-                💜
-                <span>
-                    Setiap tindakan kecil untuk peduli dapat membuat
-                    lingkungan menjadi lebih aman.
-                </span>
-            </div>
+                    <label class="kom-item">
+                        <input type="checkbox" name="komitmen">
+                        <span class="kom-check">✓</span>
+                        <span class="kom-text">
+                            Meminta bantuan guru/BK ketika diperlukan
+                        </span>
+                    </label>
 
 
-            <!-- TOMBOL -->
-            <button class="commitment-next" onclick="submitCommitment()">
-                Saya Memilih Empati →
-            </button>
+                    <label class="kom-item">
+                        <input type="checkbox" name="komitmen">
+                        <span class="kom-check">✓</span>
+                        <span class="kom-text">
+                            Menjadi bagian dari lingkungan sekolah yang aman
+                        </span>
+                    </label>
 
-            <p id="commitment-error"></p>
+                </div>
 
-        </section>
+
+                <div class="kom-info">
+                    🌱 Setiap tindakan kecil untuk peduli dapat membuat
+                    lingkungan menjadi lebih aman dan suportif.
+                </div>
+
+
+                <p id="kom-error"></p>
+
+
+                <button class="kom-button" onclick="lanjutKomitmen()">
+                    Saya Memilih Empati →
+                </button>
+
+            </section>
+
+        </div>
 
     </main>
 
 
-    <footer>
+    <footer class="kom-footer">
         🥽 REKONSTRUKSI EMPATI • Modul Konseling VR
     </footer>
 
 
-    <script src="script.js"></script>
-
-
     <script>
-        function submitCommitment() {
+        function lanjutKomitmen() {
 
-            const selected =
-                document.querySelectorAll(
-                    'input[name="commitment"]:checked'
-                );
+            const pilihan = document.querySelectorAll(
+                'input[name="komitmen"]:checked'
+            );
 
-            const error =
-                document.getElementById("commitment-error");
+            if (pilihan.length === 0) {
 
-            if (selected.length === 0) {
-
-                error.textContent =
+                document.getElementById("kom-error").textContent =
                     "Pilih minimal satu komitmen terlebih dahulu 💜";
 
                 return;
             }
 
-            // Simpan komitmen yang dipilih
-            const commitments = [];
-
-            selected.forEach(function (item) {
-                commitments.push(item.value);
-            });
-
-            localStorage.setItem(
-                "commitments",
-                JSON.stringify(commitments)
-            );
-
-            // Lanjut ke halaman selesai
             window.location.href = "selesai.html";
         }
     </script>
 
 </body>
-
 </html>
