@@ -44,3 +44,73 @@ footer{padding:25px;text-align:center;background:#171329;color:#aaa3bc;font-size
     display: block;
     margin: 15px auto;
 }
+.bully-box {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 22px;
+    background: #f5f3ff;
+    text-align: center;
+}
+
+.bully-box h2 {
+    font-size: 48px;
+    letter-spacing: 12px;
+    margin: 0 0 5px;
+    color: #e63956;
+}
+
+.bully-subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.bully-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.bully-card {
+    padding: 20px 12px;
+    border-radius: 18px;
+    background: white;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter {
+    font-size: 55px;
+    font-weight: bold;
+    color: #e63956;
+    margin-bottom: 5px;
+}
+
+.bully-card h3 {
+    font-size: 17px;
+    margin: 5px 0 12px;
+}
+
+.bully-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.finish-message {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 18px;
+    background: #f5f3ff;
+    text-align: center;
+}
+
+.finish-message h3 {
+    margin: 0 0 8px;
+}
+
+.finish-message p {
+    margin: 0;
+}
