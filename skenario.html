@@ -1,14 +1,615 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rekonstruksi Empati</title><link rel="stylesheet" href="style.css"></head><body><nav><div class="logo">🥽 REKONSTRUKSI EMPATI</div><button class="menu" onclick="menu()">☰</button><div class="nav-links" id="nav"><a href="index.html">Beranda</a><a href="empati.html">Empati</a><a href="skenario.html">Skenario</a><a href="vr.html">Pengalaman VR</a><a href="refleksi.html">Refleksi</a><a href="konseling.html">Konseling</a><a href="evaluasi.html">Evaluasi</a><a href="komitmen.html">Komitmen</a></div></nav><main class="page"><div class="inner"><div class="label">02 • PILIH PENGALAMAN</div><h1>Pilih Skenario</h1><p>Pilih situasi yang ingin kamu pahami dalam simulasi.</p>
+<!DOCTYPE html>
+<html lang="id">
 
-<div class="video-container">
-    <h2>Video Rekonstruksi Empati</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <video controls playsinline>
-        <source src="video-relasional-cyber[1].mp4" type="video/mp4">
-        Browser kamu tidak mendukung pemutaran video.
-    </video>
+    <title>Skenario | Rekonstruksi Empati</title>
 
-    <p>Tonton video terlebih dahulu sebelum memilih skenario.</p>
-</div>
+    <style>
 
-<div class="card-grid"><div class="card" onclick="choose(this,'.card');saveScenario('Verbal Bullying')"><div class="icon">🗣️</div><h3>Verbal Bullying</h3><p>Ejekan atau perkataan menyakitkan.</p></div><div class="card" onclick="choose(this,'.card');saveScenario('Pengucilan')"><div class="icon">🚫</div><h3>Pengucilan</h3><p>Dijauhkan dari lingkungan pertemanan.</p></div><div class="card" onclick="choose(this,'.card');saveScenario('Physical Bullying')"><div class="icon">🎒</div><h3>Physical Bullying</h3><p>Gangguan terhadap diri atau barang.</p></div><div class="card" onclick="choose(this,'.card');saveScenario('Cyberbullying')"><div class="icon">📱</div><h3>Cyberbullying</h3><p>Perundungan di ruang digital.</p></div></div><p id="scenarioInfo">Belum ada skenario dipilih.</p><a class="btn" href="vr.html">Mulai Pengalaman VR →</a></div></main><footer>🥽 REKONSTRUKSI EMPATI • Modul Konseling VR</footer><script src="script.js"></script></body></html>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 10% 20%, #eeeaff, transparent 30%),
+                radial-gradient(circle at 90% 80%, #f8eaff, transparent 30%),
+                #faf9ff;
+            color: #29263d;
+        }
+
+        /* NAVBAR */
+
+        .scenario-nav {
+            height: 75px;
+            background: rgba(255,255,255,0.96);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #eeeafa;
+        }
+
+        .scenario-logo {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .scenario-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .scenario-links a {
+            text-decoration: none;
+            color: #77738a;
+            font-size: 14px;
+        }
+
+        .scenario-links .active {
+            color: #7255d5;
+            font-weight: 700;
+        }
+
+
+        /* HALAMAN */
+
+        .scenario-page {
+            min-height: calc(100vh - 75px);
+
+            padding: 55px 20px 70px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .scenario-wrapper {
+            width: 100%;
+            max-width: 1050px;
+        }
+
+
+        /* JUDUL */
+
+        .scenario-label {
+            text-align: center;
+
+            color: #7255d5;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .scenario-title {
+            text-align: center;
+
+            font-size: 46px;
+
+            margin: 0;
+
+            color: #252238;
+        }
+
+        .scenario-title span {
+            color: #7255d5;
+        }
+
+        .scenario-description {
+            text-align: center;
+
+            color: #77738a;
+
+            max-width: 650px;
+
+            margin: 15px auto 35px;
+
+            line-height: 1.6;
+        }
+
+
+        /* KOTAK UTAMA */
+
+        .scenario-box {
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 18px 50px rgba(80,65,145,0.12);
+
+            border: 1px solid #eeeafa;
+        }
+
+        .scenario-instruction {
+            text-align: center;
+
+            color: #77738a;
+
+            font-size: 14px;
+
+            margin-bottom: 28px;
+        }
+
+
+        /* 4 SKENARIO */
+
+        .scenario-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+
+        /* KARTU */
+
+        .scenario-card {
+            min-height: 220px;
+
+            padding: 25px 16px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: default;
+
+            user-select: none;
+
+            border: 2px solid transparent;
+
+            transition: 0.25s;
+        }
+
+        /*
+        Kartu hanya untuk informasi.
+        Tidak ada onclick.
+        */
+
+        .scenario-card:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* WARNA */
+
+        .verbal {
+            background: #f1edff;
+            border-color: #ded6ff;
+        }
+
+        .relational {
+            background: #fff1f5;
+            border-color: #ffd9e3;
+        }
+
+        .physical {
+            background: #fff7df;
+            border-color: #ffe7a8;
+        }
+
+        .cyber {
+            background: #eaf4ff;
+            border-color: #cfe7ff;
+        }
+
+
+        /* ICON */
+
+        .scenario-icon {
+            font-size: 40px;
+            margin-bottom: 14px;
+        }
+
+
+        /* JUDUL KARTU */
+
+        .scenario-card h3 {
+            margin: 0 0 10px;
+
+            font-size: 18px;
+
+            color: #293457;
+
+            font-weight: 800;
+        }
+
+
+        /* DESKRIPSI */
+
+        .scenario-card p {
+            margin: 0;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+
+            color: #666b7d;
+        }
+
+
+        /* INFO */
+
+        .scenario-status {
+            margin: 28px auto 0;
+
+            max-width: 700px;
+
+            text-align: center;
+
+            padding: 16px 20px;
+
+            border-radius: 15px;
+
+            background: #f5f2ff;
+
+            color: #625b79;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* TOMBOL */
+
+        .start-vr {
+            display: block;
+
+            width: fit-content;
+
+            margin: 28px auto 0;
+
+            padding: 16px 34px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7056d4,
+                    #8b70e5
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px rgba(112,86,212,0.25);
+
+            transition: 0.25s;
+        }
+
+        .start-vr:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 14px 30px rgba(112,86,212,0.32);
+        }
+
+
+        /* FOOTER */
+
+        .scenario-footer {
+            background: #25243b;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 12px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .scenario-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .scenario-nav {
+                padding: 0 20px;
+            }
+
+            .scenario-links {
+                display: none;
+            }
+
+            .scenario-title {
+                font-size: 34px;
+            }
+
+            .scenario-description {
+                font-size: 14px;
+            }
+
+            .scenario-box {
+                padding: 22px 15px;
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario-card {
+                min-height: 170px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="scenario-nav">
+
+        <div class="scenario-logo">
+            🥽 REKONSTRUKSI EMPATI
+        </div>
+
+        <div class="scenario-links">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="empati.html">
+                Empati
+            </a>
+
+            <a href="skenario.html"
+               class="active">
+                Skenario
+            </a>
+
+            <a href="vr.html">
+                Pengalaman VR
+            </a>
+
+            <a href="refleksi.html">
+                Refleksi
+            </a>
+
+            <a href="konseling.html">
+                Konseling
+            </a>
+
+            <a href="evaluasi.html">
+                Evaluasi
+            </a>
+
+            <a href="komitmen.html">
+                Komitmen
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- KONTEN -->
+
+    <main class="scenario-page">
+
+        <div class="scenario-wrapper">
+
+
+            <!-- JUDUL -->
+
+            <div class="scenario-label">
+                02 • PILIH PENGALAMAN
+            </div>
+
+
+            <h1 class="scenario-title">
+                Pilih <span>Skenario</span>
+            </h1>
+
+
+            <p class="scenario-description">
+
+                Kenali berbagai bentuk bullying
+                sebelum memasuki pengalaman
+                Virtual Reality.
+
+            </p>
+
+
+
+            <!-- KOTAK -->
+
+            <section class="scenario-box">
+
+
+                <p class="scenario-instruction">
+
+                    Berikut adalah bentuk-bentuk bullying
+                    yang akan diperkenalkan dalam modul.
+
+                </p>
+
+
+
+                <!-- 4 KARTU -->
+
+                <div class="scenario-grid">
+
+
+                    <!-- VERBAL -->
+
+                    <div class="scenario-card verbal">
+
+                        <div class="scenario-icon">
+                            🗣️
+                        </div>
+
+                        <h3>
+                            Verbal Bullying
+                        </h3>
+
+                        <p>
+                            Ejekan atau perkataan
+                            yang menyakitkan.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- RELATIONAL -->
+
+                    <div class="scenario-card relational">
+
+                        <div class="scenario-icon">
+                            🚫
+                        </div>
+
+                        <h3>
+                            Relational Bullying
+                        </h3>
+
+                        <p>
+                            Menyakiti hubungan sosial,
+                            pertemanan, atau mengucilkan
+                            seseorang.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PHYSICAL -->
+
+                    <div class="scenario-card physical">
+
+                        <div class="scenario-icon">
+                            💗
+                        </div>
+
+                        <h3>
+                            Physical Bullying
+                        </h3>
+
+                        <p>
+                            Gangguan terhadap diri
+                            atau barang.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CYBER -->
+
+                    <div class="scenario-card cyber">
+
+                        <div class="scenario-icon">
+                            📱
+                        </div>
+
+                        <h3>
+                            Cyberbullying
+                        </h3>
+
+                        <p>
+                            Perundungan yang terjadi
+                            di ruang digital.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- INFORMASI -->
+
+                <div class="scenario-status">
+
+                    💜 Keempat bentuk bullying di atas
+                    merupakan bagian dari pemahaman
+                    dalam modul. Pengalaman VR menggunakan
+                    satu video utama.
+
+                </div>
+
+
+
+                <!-- TOMBOL SATU-SATUNYA -->
+
+                <a
+                    href="vr.html"
+                    class="start-vr">
+
+                    ▶ Mulai Pengalaman VR →
+
+                </a>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="scenario-footer">
+
+        🥽 REKONSTRUKSI EMPATI
+        • Modul Konseling VR
+
+    </footer>
+
+
+</body>
+
+</html>
