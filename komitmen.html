@@ -1,76 +1,185 @@
-<main class="page">
-    <div class="inner">
+<!doctype html>
+<html lang="id">
 
-        <div class="label">07 • SELESAI</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <h1>🎉 Modul selesai!</h1>
+    <title>Komitmen - Rekonstruksi Empati</title>
 
-        <p>
-            Terima kasih sudah memilih untuk membangun lingkungan
-            yang penuh empati.
-        </p>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="bully-box">
+<body>
 
-            <h2>BULLY</h2>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">🥽 REKONSTRUKSI EMPATI</div>
 
-            <div class="bully-subtitle">
-                BE KIND • UNDERSTAND • LISTEN • LIFT OTHERS • YOU CAN STOP IT
+        <button class="menu" onclick="menu()">☰</button>
+
+        <div class="nav-links" id="nav">
+            <a href="index.html">Beranda</a>
+            <a href="empati.html">Empati</a>
+            <a href="skenario.html">Skenario</a>
+            <a href="vr.html">Pengalaman VR</a>
+            <a href="refleksi.html">Refleksi</a>
+            <a href="konseling.html">Konseling</a>
+            <a href="evaluasi.html">Evaluasi</a>
+            <a href="komitmen.html" class="active">Komitmen</a>
+        </div>
+    </nav>
+
+
+    <!-- HALAMAN KOMITMEN -->
+    <main class="commitment-page">
+
+        <section class="commitment-container">
+
+            <div class="commitment-label">
+                07 • KOMITMEN
             </div>
 
-            <div class="bully-grid">
+            <h1>
+                Aku Memilih <span>Empati</span> 💜
+            </h1>
 
-                <div class="bully-card">
-                    <div class="letter">B</div>
-                    <h3>BE KIND</h3>
-                    <p>
-                        Bersikap baik dan menghargai semua orang.
-                    </p>
-                </div>
+            <p class="commitment-description">
+                Pilih minimal satu komitmen yang ingin kamu lakukan.
+            </p>
 
-                <div class="bully-card">
-                    <div class="letter">U</div>
-                    <h3>UNDERSTAND</h3>
-                    <p>
-                        Pahami perasaan orang lain dan tunjukkan empati.
-                    </p>
-                </div>
 
-                <div class="bully-card">
-                    <div class="letter">L</div>
-                    <h3>LISTEN</h3>
-                    <p>
-                        Dengarkan tanpa menghakimi dan beri dukungan.
-                    </p>
-                </div>
+            <!-- DAFTAR KOMITMEN -->
+            <div class="commitment-list">
 
-                <div class="bully-card">
-                    <div class="letter">L</div>
-                    <h3>LIFT OTHERS</h3>
-                    <p>
-                        Bangun dan dukung teman, jangan menjatuhkan.
-                    </p>
-                </div>
+                <label class="commitment-item">
+                    <input type="checkbox" name="commitment"
+                        value="Menghargai setiap orang">
 
-                <div class="bully-card">
-                    <div class="letter">Y</div>
-                    <h3>YOU CAN STOP IT</h3>
-                    <p>
-                        Kamu bisa menghentikan bullying!
-                    </p>
-                </div>
+                    <span class="custom-check">✓</span>
+
+                    <span class="commitment-text">
+                        Menghargai setiap orang
+                    </span>
+                </label>
+
+
+                <label class="commitment-item">
+                    <input type="checkbox" name="commitment"
+                        value="Tidak ikut mengejek atau merendahkan">
+
+                    <span class="custom-check">✓</span>
+
+                    <span class="commitment-text">
+                        Tidak ikut mengejek atau merendahkan
+                    </span>
+                </label>
+
+
+                <label class="commitment-item">
+                    <input type="checkbox" name="commitment"
+                        value="Membantu teman dengan cara yang aman">
+
+                    <span class="custom-check">✓</span>
+
+                    <span class="commitment-text">
+                        Membantu teman dengan cara yang aman
+                    </span>
+                </label>
+
+
+                <label class="commitment-item">
+                    <input type="checkbox" name="commitment"
+                        value="Meminta bantuan guru atau BK ketika diperlukan">
+
+                    <span class="custom-check">✓</span>
+
+                    <span class="commitment-text">
+                        Meminta bantuan guru/BK ketika diperlukan
+                    </span>
+                </label>
+
+
+                <label class="commitment-item">
+                    <input type="checkbox" name="commitment"
+                        value="Menjadi bagian dari lingkungan sekolah yang aman">
+
+                    <span class="custom-check">✓</span>
+
+                    <span class="commitment-text">
+                        Menjadi bagian dari lingkungan sekolah yang aman
+                    </span>
+                </label>
 
             </div>
-        </div>
 
-        <div class="finish-message">
-            <h3>“Lingkungan yang aman dan suportif dimulai dari kita.”</h3>
-            <p>— REKONSTRUKSI EMPATI —</p>
-        </div>
 
-        <a class="btn" href="index.html">
-            🏠 Kembali ke Beranda
-        </a>
+            <!-- PESAN -->
+            <div class="commitment-note">
+                💜
+                <span>
+                    Setiap tindakan kecil untuk peduli dapat membuat
+                    lingkungan menjadi lebih aman.
+                </span>
+            </div>
 
-    </div>
-</main>
+
+            <!-- TOMBOL -->
+            <button class="commitment-next" onclick="submitCommitment()">
+                Saya Memilih Empati →
+            </button>
+
+            <p id="commitment-error"></p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        🥽 REKONSTRUKSI EMPATI • Modul Konseling VR
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+        function submitCommitment() {
+
+            const selected =
+                document.querySelectorAll(
+                    'input[name="commitment"]:checked'
+                );
+
+            const error =
+                document.getElementById("commitment-error");
+
+            if (selected.length === 0) {
+
+                error.textContent =
+                    "Pilih minimal satu komitmen terlebih dahulu 💜";
+
+                return;
+            }
+
+            // Simpan komitmen yang dipilih
+            const commitments = [];
+
+            selected.forEach(function (item) {
+                commitments.push(item.value);
+            });
+
+            localStorage.setItem(
+                "commitments",
+                JSON.stringify(commitments)
+            );
+
+            // Lanjut ke halaman selesai
+            window.location.href = "selesai.html";
+        }
+    </script>
+
+</body>
+
+</html>
