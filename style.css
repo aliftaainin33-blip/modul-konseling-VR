@@ -712,3 +712,276 @@ footer{padding:25px;text-align:center;background:#171329;color:#aaa3bc;font-size
         display: none;
     }
 }
+/* =================================
+   HALAMAN KOMITMEN
+   ================================= */
+
+.commitment-page {
+    min-height: calc(100vh - 140px);
+    padding: 70px 20px;
+    background:
+        radial-gradient(circle at 10% 20%, #f0ecff, transparent 30%),
+        radial-gradient(circle at 90% 80%, #f9eefa, transparent 30%),
+        #fffdfb;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* CONTAINER */
+
+.commitment-container {
+    width: 100%;
+    max-width: 780px;
+    text-align: center;
+}
+
+
+/* LABEL */
+
+.commitment-label {
+    color: #7159c9;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+
+/* JUDUL */
+
+.commitment-container h1 {
+    margin: 0;
+    font-size: 46px;
+    color: #202020;
+    font-weight: 800;
+}
+
+.commitment-container h1 span {
+    color: #7159d9;
+}
+
+
+/* DESKRIPSI */
+
+.commitment-description {
+    margin-top: 15px;
+    margin-bottom: 38px;
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =================================
+   LIST KOMITMEN
+   ================================= */
+
+.commitment-list {
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/* ITEM */
+
+.commitment-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 17px 20px;
+
+    background: rgba(255,255,255,0.75);
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: all 0.25s ease;
+}
+
+
+/* HILANGKAN CHECKBOX ASLI */
+
+.commitment-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+
+/* CHECKBOX */
+
+.custom-check {
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #d4d0df;
+
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: transparent;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    flex-shrink: 0;
+
+    transition: all 0.2s ease;
+}
+
+
+/* KETIKA DICENTANG */
+
+.commitment-item input:checked + .custom-check {
+    background: #7159d9;
+    border-color: #7159d9;
+    color: white;
+}
+
+
+/* ITEM DIPILIH */
+
+.commitment-item:has(input:checked) {
+    background: #f5f2ff;
+    border-radius: 10px;
+}
+
+
+/* TEKS */
+
+.commitment-text {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* HOVER */
+
+.commitment-item:hover {
+    background: #f8f6ff;
+    transform: translateX(4px);
+}
+
+
+/* =================================
+   NOTE
+   ================================= */
+
+.commitment-note {
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    padding: 16px 22px;
+
+    border-radius: 14px;
+
+    background: #f5f2ff;
+
+    color: #5c5775;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+}
+
+
+/* =================================
+   BUTTON
+   ================================= */
+
+.commitment-next {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #6d5bd0,
+        #8b6ee8
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(109,91,208,0.22);
+
+    transition: all 0.25s ease;
+}
+
+.commitment-next:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(109,91,208,0.3);
+}
+
+
+/* ERROR */
+
+#commitment-error {
+    color: #d9576d;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+
+/* =================================
+   HP
+   ================================= */
+
+@media (max-width: 600px) {
+
+    .commitment-page {
+        padding: 45px 15px;
+    }
+
+    .commitment-container h1 {
+        font-size: 34px;
+    }
+
+    .commitment-description {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .commitment-item {
+        padding: 15px;
+    }
+
+    .commitment-text {
+        font-size: 14px;
+    }
+
+    .commitment-note {
+        font-size: 13px;
+    }
+
+}
